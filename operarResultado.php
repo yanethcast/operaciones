@@ -1,6 +1,7 @@
 <?php
 include('seguridad.php');
 include('operaciones.php');
+include ('conexion.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,52 +33,43 @@ include('operaciones.php');
     
     <td width="500" colspan="2" align="center" bgcolor="#E6F2F1">
     
+    
+    <p align="right" >Usuario Actual: <?php echo $_SESSION["usuarioActual"]; ?></p>
+    
     <p><h1 class="verdana">Operaciones Básicas</h1>
     <table width="475" height="146" border="0" summary="">
       
       <tr>
-    <td><form id="form1" name="form1" method="post" action="operaciones.php">
+    <td><form id="form1" name="form1" method="post" action="operarResultado.php">
       <div align="center">
+        
+        
         <p>&nbsp;</p>
-        <table width="307" height="180" border="0" bgcolor="#BDD0DB">
+        <table width="412" height="51" border="0" bgcolor="#BDD0DB">
           <tr>
-            <td width="142"><div align="right">Digite dato1:</div></td>
-            <td width="168"><label for="textfield"></label>
-              <input type="text" name="dato1" id="textfield" /></td>
-          </tr>
-          <tr>
-            <td><div align="right">Digite dato2:</div></td>
-            <td><input type="text" name="dato2" id="textfield2" /></td>
-          </tr>
-          <tr>
-            <td colspan="2" align="center"><label for="select"></label>
-              <select name="select" id="select">
-                <option value="">Seleccionar Operación</option>
-                <option value="sumar">Suma</option>
-                <option value="restar">Resta</option>
-                <option value="multiplicar">Multiplicación</option>
-                <option value="dividir">División</option>
-              </select></td>
-          </tr>
-          <tr>
-            <td colspan="2"><div align="center">
-              <input type="submit" name="button" id="button" value="Enviar" />
-            </div></td>
-            </tr>
-        </table>
-        <p>&nbsp;</p>
-        <table width="307" height="51" border="0" bgcolor="#BDD0DB">
-          <tr>
-            <td width="310" height="47" align="center"><label for="select3">
-              <?php
+            <td width="154" height="47" align="right"><label for="select3">
+              
+			  <?php
 		$final=new Operacion();
 		$final->$_POST["select"]($_POST["dato1"],$_POST["dato2"]);
-        $final->imprimir();
+        //$final->imprimir();
+		
         ?>
-            </label></td>
+            </label>
+              <div align="right">El resultado de  <?php echo $final->imprimir()." ".$final->getResult()?></div></td>
+            
           </tr>
         </table>
-        <p>&nbsp;</p>
+      <?php 	  
+	  
+	  $dato1=$_POST["dato1"];
+	  $dato2=$_POST["dato2"];
+	  $documento=$_SESSION["usuarioActualDoc"];
+	  $total=$final->getResult();
+	  $operacion=$_POST["select"];
+	  
+	  mysqli_query($db, "INSERT INTO resultado(idResultado, dato1, dato2, documento, total, operacion) VALUES (NULL, '$dato1', '$dato2', '$documento', '$total', '$operacion')");	  
+	  ?>
         <tr></tr>
         
         <p>&nbsp;</p>
@@ -85,12 +77,14 @@ include('operaciones.php');
     </form></td>
   </tr>
 </table>
+	<p class="verdana"><a href="operar.php">Registrar otra operación </a></p>
+	<p class="verdana"><a href="reportes.php">Consultar mis Movimientos: </a></p>
     <p class="verdana"><a href="salir.php">Cerrar sesion: </a></p>
       <p class="verdana">&nbsp;</p>
       <p class="verdana"><a href="index.php"></a></p>
-      <p><a href="opcion.php" style="color:red"></a></p>
+      <p><a href="formLogin.php" style="color:red"></a></p>
     <p>&nbsp;</p>
-      </td>
+    </td>
   </tr>
   <tr>
     <td height="38" colspan="3" bgcolor="#666666"><?php

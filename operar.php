@@ -1,5 +1,6 @@
 <?php
 include('seguridad.php');
+include ('conexion.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,7 +30,9 @@ include('seguridad.php');
 	include ('publicidad.php');
 	?></td>
     
-    <td width="500" colspan="2" align="center" bgcolor="#E6F2F1">
+    <td width="500" colspan="2" align="center" bgcolor="#E6F2F1">    
+       
+    <p align="right">Usuario Actual: <?php echo $_SESSION["usuarioActual"]; ?></p>
     
     <p><h1 class="verdana">Operaciones Básicas</h1></p>
     <table width="475" height="146" border="0" summary="">
@@ -71,10 +74,11 @@ include('seguridad.php');
     </form></td>
   </tr>
 </table>
+	<p class="verdana"><a href="reportes.php">Consultar mis Movimientos: </a></p>
     <p class="verdana"><a href="salir.php">Cerrar sesion: </a></p>
       <p class="verdana">&nbsp;</p>
       <p class="verdana"><a href="index.php"></a></p>
-      <p><a href="opcion.php" style="color:red"></a></p>
+      <p><a href="formLogin.php" style="color:red"></a></p>
     <p>&nbsp;</p>
       </td>
   </tr>

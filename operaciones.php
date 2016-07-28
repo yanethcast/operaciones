@@ -22,8 +22,13 @@ class Operacion
 		$this->resultado=$resultado;
 	}
 	public function imprimir()
+	{		
+		
+		echo $_POST["select"]." ".$_POST["dato1"]." y ".$_POST["dato2"]." es: ";				
+	}
+	public function getResult()
 	{
-		echo "El resultado de ".$_POST["select"]." ".$_POST["dato1"]." y ".$_POST["dato2"]." es: "."$this->resultado";				
+		return $this->resultado; 
 	}
 }
 /*$final=new Operacion();

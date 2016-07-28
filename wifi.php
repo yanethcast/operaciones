@@ -35,7 +35,7 @@ include('seguridad.php');
       <p class="verdana"><a href="salir.php">Cerrar sesion: </a></p>
       <p class="verdana">&nbsp;</p>
       <p class="verdana"><a href="index.php"></a></p>
-      <p><a href="opcion.php" style="color:red"></a></p>
+      <p><a href="formLogin.php" style="color:red"></a></p>
     <p>&nbsp;</p></td>
   </tr>
   <tr>

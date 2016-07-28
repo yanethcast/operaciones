@@ -38,18 +38,26 @@ $_SESSION["estado"]="0";
     <table width="475" height="146" border="0" summary="">
   
   <tr>
-    <td>
+    <td align="center">
     
     
     <form id="form1" name="form1" method="post" action="evaluar.php">
     <p>&nbsp;</p>
-      <table width="474" border="0" align="center" bgcolor="cccccc" class="verdana">
+      <table width="474" border="0" align="center" bgcolor="#BDD0DB" class="verdana">
         <tr>
-          <td width="233"><div align="right">Pass:</div></td>
+          <td width="233"><div align="right">Contrase&ntilde;a:</div></td>
           <td width="231"><label>
-            <input name="password" type="text" id="password" />
+            <input name="pass" type="password" id="password" />
           </label></td>
         </tr>
+        
+        <tr>
+          <td width="233"><div align="right">Documento:</div></td>
+          <td width="231"><label>
+            <input name="documento" type="text" id="documento" />
+          </label></td>
+        </tr>
+        
         <tr>
           <td><div align="right">&iquest;Cu&aacute;l es el resultado de 1+1?</div></td>
           <td><label>
@@ -65,6 +73,7 @@ $_SESSION["estado"]="0";
           </tr>
       </table>
         <p>&nbsp;</p>
+        <p class="verdana"><a href="salir.php">Volver a Inicio </a></p>
         </form>         
     
     </td>

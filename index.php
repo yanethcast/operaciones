@@ -72,7 +72,7 @@ $_SESSION["estado"]="0";
   </tr>
 </table>
     
-      <p><a href="opcion.php" style="color:red">Para realizar operaciones ingrese aqu&iacute; </a></p>
+      <p><a href="formLogin.php" style="color:red">Para realizar operaciones ingrese aqu&iacute; </a></p>
     <p>&nbsp;</p></td>
   </tr>
   <tr>
